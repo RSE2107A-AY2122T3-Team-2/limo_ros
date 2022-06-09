@@ -12,6 +12,8 @@
 	    <param name="initial_pose_x"            value="0"/>
 		<param name="initial_pose_y"            value="0"/>
 		<param name="initial_pose_a"            value="0"/>
+
+		<remap from="scan" to="limo/scan" />
 	</node>
 
     <!--  ************** Navigation ***************  -->
@@ -33,5 +35,9 @@
 
 	<!--  **************** Visualisation ****************  -->
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find limo_bringup)/rviz/navigation_diff.rviz"/>
+
+	<!--  **************** map_server ****************  -->
+	<arg name="map_file" default="$(find limo_bringup)/map/lab4map.yaml" />
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 </launch>
 
