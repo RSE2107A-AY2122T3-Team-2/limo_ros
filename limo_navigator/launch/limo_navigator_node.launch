@@ -1,0 +1,36 @@
+<launch>
+
+<!-- MoveBaseSeq node launch and Points Sequence ROS Parameters Loading -->
+
+    <!--Run move_base_seqs node-->
+        <node pkg="limo_navigator" type="limo_navigator_node.py" name="limo_navigator_node" output="screen">
+        
+        <!-- Load Sequence of Points (Cartesian Coordinates wrt "map") -->
+        <!-- 
+            waypt_seq - sequence of the 4 waypoints
+            1st pt: [+0.00, -1.50, +0.00]
+            2nd pt: [-1.50, +0.55, +3.00]
+            3rd pt: [-3.30, +0.65, -2.30]
+            end pt: [-2.97, -1.22, -0.55]
+            loaded in format [x1, y1, z1, x2, y2, z2, ...]
+         -->
+            <rosparam param="waypt_seq">[+0.00, -1.50, +0.00,
+                                         -1.50, +0.55, +3.00,
+                                         -3.30, +0.65, -2.30,
+                                         -2.90, -1.22, -0.55]</rosparam>
+        <!-- Load Sequence of Desired Yaw Angles (no rotations around x and y axes) in degrees-->
+        <!-- 
+            euler_angle_yaw - euler angles for yaw pos in degrees
+            (no change in x and y rotation)
+            1st pt: [180]
+            2nd pt: [270]
+            3rd pt: [135]
+            end pt: [45]
+            loaded from launch file using get_param,
+            loaded in format [yaw_angle1, yaw_angle2, ...]
+        -->
+            <rosparam param="yaw_seq">[180, 270, 135, 45]</rosparam>
+
+        </node>
+
+</launch>
