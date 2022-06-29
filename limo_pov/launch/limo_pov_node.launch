@@ -1,0 +1,6 @@
+<launch>
+
+<!-- launch file for limo_pov_node -->
+    <node pkg="limo_pov" type="limo_pov_node.py" name="limo_pov_node" output="screen"> </node>
+
+</launch>
