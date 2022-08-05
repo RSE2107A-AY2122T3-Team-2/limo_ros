@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="limo_pov" name="limo_pov_node" type="limo_pov_node.py" output="screen">
+    </node>
+</launch>
